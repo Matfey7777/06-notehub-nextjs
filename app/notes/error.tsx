@@ -1,17 +1,16 @@
 "use client";
 
-interface NotesErrorProps {
+interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
 }
 
-export default function NotesError({ error, reset }: NotesErrorProps) {
+export default function NotesError({ error, reset }: ErrorProps) {
   return (
-    <main className="error-container">
+    <div>
       <h2>Something went wrong!</h2>
-      <p>We couldn't load your notes.</p>
-
+      <p>{error.message}</p>
       <button onClick={() => reset()}>Try again</button>
-    </main>
+    </div>
   );
 }
